@@ -1,0 +1,28 @@
+{% extends 'todo_app/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-8 offset-2">
+        <h4 class ="alert alert-info text-center"> Detail Information</h4>
+        
+        <div class="container">
+            <h1 class="mt-4">{{ task.title }} - Task Detail</h1>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <p><strong>Description:</strong> {{ task.description }}</p>
+                    <p><strong>Priority:</strong> {{ task.priority }}</p>
+                    <p><strong>Status:</strong> {% if task.completed %}Completed{% else %}Pending{% endif %}</p>
+                    <p><strong>Created At:</strong> {{ task.created_at }}</p>
+                    <div class="btn-group">
+                        <a href="{% url 'edit_task' task.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                    </div>
+                </div>
+                
+            </div>
+            <a href="{% url 'task_list' %}" class="btn btn-primary mt-4">Back to Task List</a>
+        </div>
+        
+        
+    </div>
+</div>
+{% endblock content %}

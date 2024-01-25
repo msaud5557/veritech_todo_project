@@ -1,0 +1,22 @@
+<!-- todo_app/templates/todo_app/add_task.html -->
+
+
+
+{% extends 'todo_app/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-8 offset-2">
+        <h4 class ="alert alert-info text-center"> Add Task Information</h4>
+        
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class ="alert alert-info text-center" >Add</button>
+            <a href="{% url 'task_list' %}" class ="alert alert-info text-center" >Back to Task List</a>
+        </form>
+        
+        
+    </div>
+</div>
+{% endblock content %}
